@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BrigithTravel EIRL – Vuelos, Tours y Pasajes Terrestres</title>
+  <meta name="description" content="Agencia de viajes: vuelos, tours y pasajes terrestres. Cotiza y reserva con BrigithTravel EIRL." />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="icon" href="/favicon.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind config (opcional):
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#effaff',
+              100: '#def4ff',
+              200: '#b6e8ff',
+              300: '#7ed6ff',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Tipografía del sistema para un look profesional y rápido */
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+  <!-- Header / Navbar -->
+  <header class="sticky top-0 z-50 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-slate-100">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="#" class="flex items-center gap-3">
+          <div class="h-9 w-9 rounded-xl bg-brand-500 grid place-items-center text-white font-bold">BT</div>
+          <div class="leading-tight">
+            <p class="font-semibold">BrigithTravel <span class="font-normal">EIRL</span></p>
+            <p class="text-xs text-slate-500 -mt-1">Vuelos · Tours · Terrestre</p>
+          </div>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm">
+          <a href="#servicios" class="hover:text-brand-600">Servicios</a>
+          <a href="#buscador" class="hover:text-brand-600">Buscar</a>
+          <a href="#destinos" class="hover:text-brand-600">Destinos</a>
+          <a href="#testimonios" class="hover:text-brand-600">Opiniones</a>
+          <a href="#contacto" class="hover:text-brand-600">Contacto</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="#contacto" class="hidden sm:inline-flex rounded-xl bg-brand-600 px-4 py-2 text-white font-medium hover:bg-brand-700">Cotizar ahora</a>
+          <button id="mobileMenuBtn" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200">
+            <span class="sr-only">Abrir menú</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-100 bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-3 flex flex-col gap-3 text-sm">
+        <a href="#servicios" class="hover:text-brand-600">Servicios</a>
+        <a href="#buscador" class="hover:text-brand-600">Buscar</a>
+        <a href="#destinos" class="hover:text-brand-600">Destinos</a>
+        <a href="#testimonios" class="hover:text-brand-600">Opiniones</a>
+        <a href="#contacto" class="hover:text-brand-600">Contacto</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative isolate">
+    <div class="absolute inset-0 -z-10">
+      <!-- Reemplaza la imagen por una foto libre de derechos -->
+      <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=2000&auto=format&fit=crop" alt="Avión despegando al atardecer" class="h-full w-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-white/0"></div>
+    </div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 sm:py-28 lg:py-36 text-white">
+      <div class="max-w-3xl">
+        <h1 class="text-3xl sm:text-5xl font-bold leading-tight">Viaja fácil con <span class="text-brand-200">BrigithTravel EIRL</span></h1>
+        <p class="mt-4 text-lg text-slate-100/90">Vuelos, tours y pasajes terrestres al mejor precio. Atención personalizada y soporte en todo momento.</p>
+        <div class="mt-8 flex gap-3">
+          <a href="#buscador" class="rounded-xl bg-white/95 px-5 py-3 text-slate-900 font-semibold hover:bg-white">Buscar ahora</a>
+          <a href="#servicios" class="rounded-xl border border-white/80 px-5 py-3 font-medium hover:bg-white/10">Ver servicios</a>
+        </div>
+      </div>
+    </div>
+    <!-- Card buscador sobrepuesta -->
+    <div id="buscador" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-10 sm:-mt-16 relative">
+      <div class="rounded-2xl bg-white shadow-xl ring-1 ring-slate-100 p-4 sm:p-6 lg:p-8">
+        <form id="searchForm" class="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
+          <label class="block">
+            <span class="text-sm font-medium text-slate-700">Origen</span>
+            <input required type="text" placeholder="Ciudad de origen" class="mt-1 w-full rounded-xl border-slate-200 focus:border-brand-400 focus:ring-brand-400" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-medium text-slate-700">Destino</span>
+            <input required type="text" placeholder="Ciudad de destino" class="mt-1 w-full rounded-xl border-slate-200 focus:border-brand-400 focus:ring-brand-400" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-medium text-slate-700">Fecha</span>
+            <input required type="date" class="mt-1 w-full rounded-xl border-slate-200 focus:border-brand-400 focus:ring-brand-400" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-medium text-slate-700">Pasajeros</span>
+            <input required type="number" min="1" value="1" class="mt-1 w-full rounded-xl border-slate-200 focus:border-brand-400 focus:ring-brand-400" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-medium text-slate-700">Tipo</span>
+            <select class="mt-1 w-full rounded-xl border-slate-200 focus:border-brand-400 focus:ring-brand-400">
+              <option>Vuelos</option>
+              <option>Tours</option>
+              <option>Pasajes terrestres</option>
+            </select>
+          </label>
+          <button type="submit" class="md:col-span-5 rounded-xl bg-brand-600 px-5 py-3 text-white font-semibold hover:bg-brand-700">Buscar disponibilidad</button>
+          <p id="searchNote" class="md:col-span-5 text-xs text-slate-500">* Demo: esta búsqueda es una simulación para fines de maquetación.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+    <div class="max-w-2xl">
+      <h2 class="text-2xl sm:text-3xl font-semibold">Nuestros servicios</h2>
+      <p class="mt-2 text-slate-600">Paquetes a medida, soporte real y las mejores rutas para que solo te ocupes de disfrutar.</p>
+    </div>
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Card 1 -->
+      <div class="rounded-2xl border border-slate-100 p-6 shadow-sm hover:shadow-md transition">
+        <div class="h-12 w-12 rounded-xl bg-brand-50 text-brand-700 grid place-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.5 21h3M3 10l9 3 9-3M12 13v8"/></svg>
+        </div>
+        <h3 class="mt-4 font-semibold text-lg">Vuelos</h3>
+        <p class="mt-1 text-slate-600">Cotizamos en múltiples aerolíneas para conseguir la mejor tarifa y conexiones óptimas.</p>
+        <ul class="mt-4 text-sm text-slate-600 list-disc pl-5 space-y-1">
+          <li>Regulares y low-cost</li>
+          <li>Itinerarios flexibles</li>
+          <li>Asistencia 24/7</li>
+        </ul>
+      </div>
+      <!-- Card 2 -->
+      <div class="rounded-2xl border border-slate-100 p-6 shadow-sm hover:shadow-md transition">
+        <div class="h-12 w-12 rounded-xl bg-brand-50 text-brand-700 grid place-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l18-9L3 3v7l12 2-12 2v7z"/></svg>
+        </div>
+        <h3 class="mt-4 font-semibold text-lg">Tours</h3>
+        <p class="mt-1 text-slate-600">Experiencias guiadas y personalizadas: ciudad, naturaleza y aventura para todos los gustos.</p>
+        <ul class="mt-4 text-sm text-slate-600 list-disc pl-5 space-y-1">
+          <li>City tours y escapadas</li>
+          <li>Paquetes completos</li>
+          <li>Seguro y soporte</li>
+        </ul>
+      </div>
+      <!-- Card 3 -->
+      <div class="rounded-2xl border border-slate-100 p-6 shadow-sm hover:shadow-md transition">
+        <div class="h-12 w-12 rounded-xl bg-brand-50 text-brand-700 grid place-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M4 17h16M6 21h12M7 7h10l1 5H6l1-5z"/></svg>
+        </div>
+        <h3 class="mt-4 font-semibold text-lg">Pasajes terrestres</h3>
+        <p class="mt-1 text-slate-600">Rutas interprovinciales e internacionales con operadores confiables y horarios convenientes.</p>
+        <ul class="mt-4 text-sm text-slate-600 list-disc pl-5 space-y-1">
+          <li>Coordinación de asientos</li>
+          <li>Traslados y shuttle</li>
+          <li>Grupos y corporativos</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destinos populares -->
+  <section id="destinos" class="bg-slate-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+      <div class="flex items-end justify-between gap-6">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-semibold">Destinos populares</h2>
+          <p class="mt-2 text-slate-600">Inspírate con nuestras rutas más solicitadas.</p>
+        </div>
+        <a href="#contacto" class="hidden sm:inline-flex text-sm font-medium text-brand-700 hover:text-brand-800">Solicitar una cotización →</a>
+      </div>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <!-- Card destino: reemplaza imágenes -->
+        <article class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100">
+          <img class="h-44 w-full object-cover group-hover:scale-105 transition" src="https://images.unsplash.com/photo-1526779259212-939e64788e3c?q=80&w=1600&auto=format&fit=crop" alt="Ciudad 1" />
+          <div class="p-4">
+            <h3 class="font-semibold">Lima</h3>
+            <p class="text-sm text-slate-600">Playas, gastronomía y cultura.</p>
+          </div>
+        </article>
+        <article class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100">
+          <img class="h-44 w-full object-cover group-hover:scale-105 transition" src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?q=80&w=1600&auto=format&fit=crop" alt="Ciudad 2" />
+          <div class="p-4">
+            <h3 class="font-semibold">Cusco</h3>
+            <p class="text-sm text-slate-600">Historia y naturaleza en los Andes.</p>
+          </div>
+        </article>
+        <article class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100">
+          <img class="h-44 w-full object-cover group-hover:scale-105 transition" src="https://images.unsplash.com/photo-1505764706515-aa95265c5abc?q=80&w=1600&auto=format&fit=crop" alt="Ciudad 3" />
+          <div class="p-4">
+            <h3 class="font-semibold">Buenos Aires</h3>
+            <p class="text-sm text-slate-600">Vida urbana, arte y tango.</p>
+          </div>
+        </article>
+        <article class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100">
+          <img class="h-44 w-full object-cover group-hover:scale-105 transition" src="https://images.unsplash.com/photo-1533681018184-68bd1d883546?q=80&w=1600&auto=format&fit=crop" alt="Ciudad 4" />
+          <div class="p-4">
+            <h3 class="font-semibold">Miami</h3>
+            <p class="text-sm text-slate-600">Sol, compras y entretenimiento.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section id="testimonios" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+    <div class="max-w-2xl">
+      <h2 class="text-2xl sm:text-3xl font-semibold">Lo que dicen nuestros clientes</h2>
+      <p class="mt-2 text-slate-600">Atención humana, respuestas rápidas y viajes sin estrés.</p>
+    </div>
+    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Testimonio -->
+      <figure class="rounded-2xl border border-slate-100 p-6 shadow-sm bg-white">
+        <blockquote class="text-slate-700">“Excelente gestión, consiguieron un vuelo con mejor horario y precio.”</blockquote>
+        <figcaption class="mt-4 text-sm text-slate-500">— Ana, viaje a México</figcaption>
+      </figure>
+      <figure class="rounded-2xl border border-slate-100 p-6 shadow-sm bg-white">
+        <blockquote class="text-slate-700">“El tour estuvo súper organizado, nos sentimos acompañados todo el tiempo.”</blockquote>
+        <figcaption class="mt-4 text-sm text-slate-500">— Luis, city tour</figcaption>
+      </figure>
+      <figure class="rounded-2xl border border-slate-100 p-6 shadow-sm bg-white">
+        <blockquote class="text-slate-700">“Compré pasajes terrestres para toda mi familia sin complicaciones.”</blockquote>
+        <figcaption class="mt-4 text-sm text-slate-500">— Karina, ruta Quito–Lima</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-slate-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+      <div class="max-w-2xl">
+        <h2 class="text-2xl sm:text-3xl font-semibold">Preguntas frecuentes</h2>
+        <p class="mt-2 text-slate-600">Transparencia antes, durante y después de tu viaje.</p>
+      </div>
+      <div class="mt-8 grid gap-4">
+        <details class="group rounded-2xl bg-white p-6 shadow-sm border border-slate-100">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-medium text-slate-800">
+            ¿Cómo funciona la cotización?
+            <span class="ml-4 text-slate-400 group-open:rotate-180 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </span>
+          </summary>
+          <p class="mt-3 text-slate-600">Nos envías fechas, ruta y preferencias. Te respondemos con 2–3 opciones claras y el detalle de tarifas e impuestos.</p>
+        </details>
+        <details class="group rounded-2xl bg-white p-6 shadow-sm border border-slate-100">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-medium text-slate-800">
+            ¿Puedo pagar a plazos?
+            <span class="ml-4 text-slate-400 group-open:rotate-180 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </span>
+          </summary>
+          <p class="mt-3 text-slate-600">Sí, trabajamos con transferencias y tarjetas según destino y operador. Consulta condiciones.</p>
+        </details>
+        <details class="group rounded-2xl bg-white p-6 shadow-sm border border-slate-100">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-medium text-slate-800">
+            ¿Emiten factura?
+            <span class="ml-4 text-slate-400 group-open:rotate-180 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </span>
+          </summary>
+          <p class="mt-3 text-slate-600">Claro, emitimos comprobantes a nombre de persona o empresa.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+    <div class="grid lg:grid-cols-2 gap-10 items-start">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-semibold">Cotiza con un asesor</h2>
+        <p class="mt-2 text-slate-600">Déjanos tus datos y te contactamos en breve.</p>
+        <form id="contactForm" class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <label class="block">
+            <span class="text-sm font-medium text-slate-700">Nombre</span>
+            <input required type="text" class="mt-1 w-full rounded-xl border-slate-200 focus:border-brand-400 focus:ring-brand-400" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-medium text-slate-700">Teléfono/WhatsApp</span>
+            <input required type="tel" class="mt-1 w-full rounded-xl border-slate-200 focus:border-brand-400 focus:ring-brand-400" />
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="text-sm font-medium text-slate-700">Correo</span>
+            <input required type="email" class="mt-1 w-full rounded-xl border-slate-200 focus:border-brand-400 focus:ring-brand-400" />
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="text-sm font-medium text-slate-700">Mensaje</span>
+            <textarea rows="4" class="mt-1 w-full rounded-xl border-slate-200 focus:border-brand-400 focus:ring-brand-400" placeholder="Cuéntanos destino, fechas y número de viajeros..."></textarea>
+          </label>
+          <button class="sm:col-span-2 rounded-xl bg-brand-600 px-5 py-3 text-white font-semibold hover:bg-brand-700">Enviar solicitud</button>
+          <p id="contactNote" class="sm:col-span-2 text-xs text-slate-500">* Demo: este formulario simula el envío (no envía datos reales).</p>
+        </form>
+      </div>
+      <div class="rounded-2xl border border-slate-100 p-6 shadow-sm bg-white">
+        <h3 class="font-semibold">Información</h3>
+        <ul class="mt-4 space-y-2 text-slate-600">
+          <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18M7 5v14m10-14v14M3 19h18"/></svg> BrigithTravel EIRL</li>
+          <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg> Sede: (agrega ciudad/país)</li>
+          <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg> contacto@brigithtravel.com</li>
+          <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92V21a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012 4.18 2 2 0 014 2h4.09a2 2 0 012 1.72c.12.81.3 1.6.54 2.36a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.72-2.09a2 2 0 012.11-.45c.76.24 1.55.42 2.36.54A2 2 0 0122 16.92z"/></svg> +51 999-999-999</li>
+          <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12l9 6 11-7-9-5-11 6z"/></svg> RUC: (si aplica)</li>
+        </ul>
+        <hr class="my-6"/>
+        <p class="text-sm text-slate-500">Horarios de atención: Lun–Vie 9:00–18:00 (ajusta según tu operación).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-100 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-slate-500">© <span id="year"></span> BrigithTravel EIRL. Todos los derechos reservados.</p>
+        <nav class="text-sm text-slate-600 flex gap-4">
+          <a href="#" class="hover:text-brand-700">Términos</a>
+          <a href="#" class="hover:text-brand-700">Privacidad</a>
+          <a href="#contacto" class="hover:text-brand-700">Soporte</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Año dinámico en el footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Menú móvil
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Formularios de demo (no envía datos reales)
+    document.getElementById('searchForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Búsqueda de disponibilidad simulada. Aquí integrarías tu API (GDS/operador).');
+    });
+
+    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Solicitud enviada (demo). En producción, conecta a tu WhatsApp/CRM o email.');
+    });
+  </script>
+</body>
+</html>
